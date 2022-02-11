@@ -1,11 +1,8 @@
-var initialMobilePrice = document.getElementById("mobile-price").innerText;
-const initialMobilePriceNum = parseFloat(initialMobilePrice);
-var initialCasePrice = document.getElementById("case-price").innerText;
-const initialCasePriceNum = parseFloat(initialCasePrice);
-var subtotal = document.getElementById("subtotalId").innerText;
-var subtotalNum = parseFloat(subtotal);
-var total = document.getElementById("totalId").innerText;
-var totalNum = parseFloat(total);
+const initialMobilePriceNum = getNum("mobile-price");
+const initialCasePriceNum = getNum("case-price");
+var subtotalNum = getNum("subtotalId");
+var totalNum = getNum("totalId");
+
 
 console.log("subtotal num ", subtotalNum)
 const mobileAdd = document.getElementById("mobile-plus-btn");
@@ -36,8 +33,6 @@ function PlusOrMinus(id, n) {
     var total = QuantityNum + n;
     console.log(QuantityNum, n)
     document.getElementById(id).value = total;
-
-
 }
 
 function multiplyOrDiv(id, n) {
@@ -49,8 +44,12 @@ function multiplyOrDiv(id, n) {
     document.getElementById("subtotalId").innerText = subtotalNum;
     document.getElementById("totalId").innerText = subtotalNum;
     document.getElementById(id).innerText = total;
+}
 
+function getNum(id) {
 
+    var idName = document.getElementById(id).innerText;
+    return parseFloat(idName);
 
 
 }
